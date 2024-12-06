@@ -12,7 +12,7 @@ function App() {
     const calculateTax = async (formData) => {
         try {
             setIsCalculating(true);
-            const response = await fetch('http://localhost:3000/api/tax/calculate', {
+            const response = await fetch('http://SouthAfricanTaxCalculator.somee.com/api/tax/calculate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

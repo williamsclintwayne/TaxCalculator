@@ -6,7 +6,9 @@ const aiRoutes = require('./routes/aiRoutes'); // Import the AI routes
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: 'http://SouthAfricanTaxCalculator.somee.com' // Allow requests from the specified domain
+}));
 app.use(express.json());
 
 // Routes

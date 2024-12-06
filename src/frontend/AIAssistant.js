@@ -31,7 +31,7 @@ function AIAssistant() {
         setMessages(prev => [...prev, { type: 'user', content: userMessage }]);
 
         try {
-            const response = await fetch('http://localhost:3000/api/ai/query', {
+            const response = await fetch('http://SouthAfricanTaxCalculator.somee.com/api/ai/query', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
