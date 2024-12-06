@@ -1,0 +1,16 @@
+{
+  "name": "taxcalculator",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/server.js",
+    "frontend": "webpack serve --mode development --open",
+    "dev": "concurrently \"npm run start\" \"npm run frontend\"",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "taxcalculator": "file:"
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.0"
+  }
+}

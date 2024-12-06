@@ -1,0 +1,29 @@
+/* New styles for AI Assistant */
+.chat-message.assistant {
+    background-color: #f0f8ff; /* Light blue background */
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    border-left: 5px solid #007bff; /* Blue left border */
+}
+
+.chat-message.user {
+    background-color: #e6ffe6; /* Light green background */
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    border-left: 5px solid #28a745; /* Green left border */
+}
+
+/* Add a separator between messages */
+.chat-message {
+    position: relative;
+}
+
+.chat-message:not(:last-child)::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: #ccc; /* Light gray separator */
+    margin: 5px 0;
+}

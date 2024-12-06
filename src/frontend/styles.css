@@ -1,0 +1,365 @@
+/* Modern CSS Reset and Variables */
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --accent-color: #3b82f6;
+  --background-color: #f8fafc;
+  --text-color: #1e293b;
+  --border-color: #e2e8f0;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* Layout Styles */
+.app-wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.main-content {
+  transition: transform var(--transition-speed) ease;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-content.shifted {
+  transform: translateX(-300px);
+}
+
+/* Calculator Styles */
+.calculator-container {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+  transition: transform var(--transition-speed);
+}
+
+.calculator-container:hover {
+  transform: translateY(-2px);
+}
+
+h1 {
+  text-align: center;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* Form Styles */
+.tax-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: all var(--transition-speed);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Button Styles */
+.submit-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.submit-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-1px);
+}
+
+/* Results Styles */
+.tax-result {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  margin-top: 2rem;
+  animation: slideUp 0.5s ease-out;
+  box-shadow: var(--shadow-md);
+}
+
+.result-section {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--background-color);
+}
+
+.result-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* AI Panel Styles */
+.ai-panel {
+  position: fixed;
+  height: 100%; /* Ensure the panel takes full height */
+  top: 0;
+  right: 0; /* Show when open */
+  width: 400px; /* Adjust width as needed */
+  height: 100vh; /* Full height */
+  background: white; /* Background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  transition: right 0.3s ease; /* Smooth transition */
+}
+
+.ai-panel.open {
+  right: 0; /* Show when open */
+}
+
+
+.ai-toggle-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-speed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.ai-toggle-button:hover {
+  transform: scale(1.1);
+  background: var(--secondary-color);
+}
+
+.ai-toggle-button.active {
+  right: 420px;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Loading States */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: var(--text-color);
+}
+
+.loading::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+
+  .calculator-container {
+    padding: 1rem;
+  }
+
+  .ai-panel {
+    width: 100%;
+    right: -100%;
+  }
+
+  .ai-panel.open {
+    right: 0; /* Show when open */
+    /* Remove transform to ensure visibility */
+  }
+
+  .ai-toggle-button.active {
+    right: 20px;
+  }
+
+  .main-content.shifted {
+    transform: translateX(0);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* AI Assistant Sidebar Styles */
+.ai-assistant {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  z-index: 1000;
+  max-width: 400px;
+  height: 100vh;
+  overflow-y: auto;
+  top: 0;
+  right: -400px; /* Hidden by default */
+  transition: right 0.3s ease;
+}
+
+.ai-assistant.open {
+  right: 0; /* Show when open */
+  z-index: 999;
+}
+
+.chat-window {
+  height: calc(100% - 60px); /* Adjust for input area */
+  overflow-y: auto;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.chat-message {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background: #f0f9ff;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.chat-message.user {
+  background-color: #e0f7fa;
+  margin-left: auto;
+  z-index: 1000;
+}
+
+.chat-message.assistant {
+  background-color: #fff;
+  margin-right: auto;
+  z-index: 1000;
+  border-left: 4px solid var(--primary-color);
+}
+
+.chat-input-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  z-index: 1000;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  z-index: 1000;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.submit-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+  z-index: 1000;
+}
+
+.submit-button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Footer Styles */
+.app-footer {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  margin-top: 2rem;
+  box-shadow: var(--shadow-sm);
+}

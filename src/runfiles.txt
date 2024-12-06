@@ -1,0 +1,4 @@
+to run:
+
+backend = npm start
+frontend = npm run client
